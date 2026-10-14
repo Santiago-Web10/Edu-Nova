@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+  <!-- 01. DATOS DE LA PÁGINA — Idioma, título y configuración para móviles. -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EDU NOVA · Aprende matemáticas con Nova</title>
+    <!-- 02. CSS EXTERNO: este enlace carga el diseño desde css/estilos.css. -->
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0"
+    >
+      <defs>
+        <image id="nova-art-image" href="nova.jpg" width="1500" height="1160" />
+      </defs>
+    </svg>
+
+    <!-- 04. MENÚ PRINCIPAL — Acceso a Inicio, Temas, Juegos, Mi progreso y Mis logros. -->
+    <aside class="app-sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-cap">🎓</span>
+        <div class="logo">Edu<span>Nova</span></div>
+        <p>Refuerzo Matemático<br />4.º – 6.º de primaria</p>
+      </div>
+      <nav aria-label="Principal">
+        <button id="navHome" class="active"><span aria-hidden="true">⌂</span>Inicio</button>
+        <button id="navTopics"><span aria-hidden="true">▤</span>Temas</button>
+        <button id="navGames"><span aria-hidden="true">▶</span>Juegos</button>
+        <button id="navProgress"><span aria-hidden="true">▥</span>Mi progreso</button>
+        <button id="navAchievements"><span aria-hidden="true">♜</span>Mis logros</button>
+      </nav>
+      <div class="sidebar-nova">
+        <strong>¡Tú puedes!</strong>
+        <div class="side-nova-art">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 773 253 307"
+            data-fixed-pose="cheer"
+            role="img"
+            aria-label="Nova, tu compañero de matemáticas"
+            data-nova="true"
+          >
+            <use href="#nova-art-image" />
+          </svg>
+        </div>
+        <button id="sidebarGuide">Nova, guíame →</button>
+      </div>
+    </aside>
+    <header class="app-topbar">
+      <div>
+        <h2>Hola, Estudiante 👋</h2>
+        <p>¡Bienvenido a tu espacio de aprendizaje!</p>
+      </div>
+      <div class="profile-tools">
+        <button id="tourLaunch" class="top-guide">✦ Guíame</button>
+        <div class="profile-portrait">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="825 126 234 215"
+            data-fixed-pose="face"
+            role="img"
+            aria-label="Nova, tu compañero de matemáticas"
+            data-nova="true"
+          >
+            <use href="#nova-art-image" />
+          </svg>
+        </div>
+        <label
+          ><strong>Estudiante</strong
+          ><select id="profileGrade" aria-label="Selecciona tu grado">
+            <option value="4">4.º grado</option>
+            <option value="5">5.º grado</option>
+            <option value="6">6.º grado</option>
+          </select></label
+        >
+      </div>
+    </header>
+
+    <!-- 05. CONTENIDO — Aquí se muestran las pantallas de la plataforma. -->
+    <main>
+      <div id="notice" class="notice hidden" role="status">
+        No se puede guardar en este navegador. El progreso se conservará solo durante esta sesión.
+      </div>
+
+      <!-- 05A. INICIO — Bienvenida, selección de grado y resumen del estudiante. -->
+      <section id="home">
+        <div class="hero">
+          <div>
+            <span class="tag">TU AVENTURA MATEMÁTICA</span>
+            <h1>Aprende<br />Matemáticas<br />con <span class="nova-word">Nova</span></h1>
+            <p>
+              Explora, practica y mejora tus habilidades de forma divertida. Yo te acompaño paso a
+              paso.
+            </p>
+            <button id="continue">Practicar con Nova →</button>
+          </div>
+          <div class="nova-scene">
+            <div class="hero-avatar">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="754 119 370 363"
+                data-fixed-pose="hero"
+                role="img"
+                aria-label="Nova, tu compañero de matemáticas"
+                data-nova="true"
+              >
+                <use href="#nova-art-image" />
+              </svg>
+            </div>
+            <span class="hero-speech">¡Las matemáticas también pueden ser divertidas!</span>
+          </div>
+        </div>
+        <div class="course-progress-row">
+          <div class="course-area">
+            <div class="dashboard-heading">
+              <h2>🎓 Selecciona tu curso</h2>
+              <button id="homeChooseGrade" class="text-button">Cambiar grado</button>
+            </div>
+            <div class="course-cards">
+              <button id="course4" class="course-card course-mint">
+                <span class="course-picture">📚</span
+                ><span
+                  ><strong>4.º Grado</strong><small>Refuerza tus conocimientos básicos</small></span
+                ><span class="course-arrow">→</span>
+              </button>
+              <button id="course5" class="course-card course-blue">
+                <span class="course-picture">📒</span
+                ><span><strong>5.º Grado</strong><small>Avanza con nuevos retos</small></span
+                ><span class="course-arrow">→</span>
+              </button>
+              <button id="course6" class="course-card course-lavender">
+                <span class="course-picture">🔢</span
+                ><span
+                  ><strong>6.º Grado</strong><small>Prepárate para desafíos mayores</small></span
+                ><span class="course-arrow">→</span>
+              </button>
+            </div>
+          </div>
+          <div class="card home-progress">
+            <h2>🎯 Mi progreso general</h2>
+            <div class="home-progress-content">
+              <div id="progressDonut" class="progress-donut" role="img" aria-label="Progreso">
+                <strong id="homePercent">0%</strong>
+              </div>
+              <div class="progress-mini-stats">
+                <p><span>Temas completados</span><strong id="worldCount">0 / 6</strong></p>
+                <p><span>Ejercicios de este grado</span><strong id="homeSolved">0 / 30</strong></p>
+                <p><span>Estrellas totales</span><strong id="stars">0</strong></p>
+              </div>
+            </div>
+            <button id="goProgress" class="text-button">Ver mi progreso →</button>
+          </div>
+        </div>
+        <div class="dashboard-panels">
+          <div class="card activity-card">
+            <h2>🕘 Tu próxima actividad</h2>
+            <div class="activity-recommend">
+              <span id="activityIcon" class="activity-icon">📘</span>
+              <div><strong id="activityTitle"></strong><small id="activityGrade"></small></div>
+            </div>
+            <button id="activityContinue" class="soft">Continuar →</button
+            ><button id="goGames" class="text-button">Practicar jugando →</button>
+          </div>
+          <div class="card">
+            <div class="dashboard-heading">
+              <h2>🏆 Mis logros</h2>
+              <button id="homeAchievements" class="text-button">Ver todos</button>
+            </div>
+            <div id="badgePreview" class="badge-preview"></div>
+            <span class="level-caption">Tu nivel: <strong id="level">Explorador</strong></span>
+          </div>
+          <div class="card home-nova-advice">
+            <h2>💡 Consejo de Nova</h2>
+            <div class="nova-advice-body">
+              <div class="advice-avatar">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="813 122 265 283"
+                  role="img"
+                  aria-label="Nova, tu compañero de matemáticas"
+                  data-nova="true"
+                >
+                  <use href="#nova-art-image" />
+                </svg>
+              </div>
+              <p id="homeSuggestion"></p>
+            </div>
+            <button id="homePractice" class="soft">Practicar recomendado →</button>
+          </div>
+        </div>
+        <div class="card dashboard-bottom">
+          <div>
+            <span class="tag">UN PEQUEÑO PASO CADA DÍA</span>
+            <h2>Seis temas pensados para cada grado</h2>
+            <p>
+              Operaciones, fracciones, geometría, decimales, medidas y problemas, con nuevos retos
+              en cada curso.
+            </p>
+          </div>
+          <button id="goTopics">Ver todos los temas →</button>
+        </div>
+      </section>
+
+      <!-- 05D. LOGROS — Insignias de los seis temas y tres grados. -->
+      <section id="achievements" class="hidden">
+        <span class="tag">Todo esfuerzo cuenta</span>
+        <h1>Tu colección de logros</h1>
+        <p>Completa misiones y descubre hasta dieciocho insignias, seis por grado.</p>
+        <div id="badgeList" class="grid"></div>
+        <div class="card tip">
+          <strong id="overall"></strong>
+          <p>
+            Estos logros muestran las misiones que has completado. En Mi progreso, Nova te
+            recomienda qué practicar después.
+          </p>
+          <button id="achievementRecommendations" class="soft">Ver recomendaciones →</button>
+        </div>
+      </section>
+
+      <!-- 05B. EJERCICIOS — Lección, ejemplo, respuestas, pistas y práctica sencilla. -->
+      <section id="mission" class="exercise hidden">
+        <div class="bar">
+          <button id="back" class="soft">← Volver al mapa</button
+          ><span id="counter" class="small"></span>
+        </div>
+        <div class="card">
+          <span id="tag" class="tag"></span>
+          <h1 id="title" tabindex="-1"></h1>
+          <div id="steps" class="steps" aria-label="Progreso"></div>
+          <div class="lesson">
+            <strong>📖 Descubre cómo hacerlo</strong>
+            <p id="lesson"></p>
+            <p id="example"></p>
+          </div>
+          <div class="nova-inline">
+            <div class="mini-avatar"></div>
+            <div>
+              <strong>Nova te acompaña</strong>
+              <p id="novaMissionText" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <h2 id="question"></h2>
+          <div id="visual" class="visual"></div>
+          <div id="answers" class="options"></div>
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+          <div id="hintText" class="feedback hidden" role="status"></div>
+          <div class="actions">
+            <button id="hint" class="soft">💡 Una pista, por favor</button
+            ><button id="next" class="hidden">Siguiente paso →</button>
+          </div>
+          <div id="support" class="card support hidden">
+            <strong>🌱 Practiquemos un paso más pequeño</strong>
+            <p id="supportQuestion"></p>
+            <div id="supportVisual" class="visual"></div>
+            <div id="supportAnswers" class="options"></div>
+            <p id="supportFeedback" role="status"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05C. FIN DE MISIÓN — Estrellas e insignia del tema completado. -->
+      <section id="result" class="result hidden">
+        <div class="card">
+          <div class="result-avatar celebrate">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="813 122 265 283"
+              role="img"
+              aria-label="Nova, tu compañero de matemáticas"
+              data-nova="true"
+            >
+              <use href="#nova-art-image" />
+            </svg>
+          </div>
+          <span class="tag">Un nuevo descubrimiento</span>
+          <h1>¡Misión completada!</h1>
+          <p id="resultText"></p>
+          <div id="resultBadge" class="level"></div>
+          <p>Las pistas y los reintentos también forman parte de tu aprendizaje.</p>
+          <button id="return">Seguir explorando →</button>
+        </div>
+      </section>
+
+      <!-- 05E. JUEGOS — Actividades para practicar matemáticas a tu ritmo. -->
+      <section id="games" class="hidden">
+        <div class="page-heading">
+          <div>
+            <span class="tag">APRENDER TAMBIÉN ES JUGAR</span>
+            <h1>Los juegos de Nova</h1>
+            <p>Seis juegos, retos variados y pistas de Nova. Sin reloj y sin vidas que perder.</p>
+          </div>
+          <label
+            >Mi grado
+            <select id="gamesGrade">
+              <option value="4">4.º</option>
+              <option value="5">5.º</option>
+              <option value="6">6.º</option>
+            </select></label
+          >
+        </div>
+        <div id="gameCards" class="grid"></div>
+        <div class="card tip">
+          <strong>⭐ Juega, practica y descubre</strong>
+          <p>
+            Completar cada juego por primera vez en un grado da 25 estrellas. Puedes repetirlo todas
+            las veces que quieras: las preguntas y los retos cambian entre partidas.
+          </p>
+        </div>
+      </section>
+
+      <!-- 05F. PARTIDA — Zona interactiva del juego elegido. -->
+      <section id="gamePlay" class="exercise hidden">
+        <div class="bar">
+          <button id="gameBack" class="soft">← Volver a juegos</button
+          ><span id="gameCounter" class="small"></span>
+        </div>
+        <div class="card">
+          <span id="gameTag" class="tag"></span>
+          <h1 id="gameTitle" tabindex="-1"></h1>
+          <div class="nova-inline">
+            <div id="gameNovaAvatar" class="mini-avatar"></div>
+            <div>
+              <strong>Nova te explica el juego</strong>
+              <p id="gameInstructions"></p>
+            </div>
+          </div>
+          <div id="gameArea"></div>
+          <div id="gameMessage" class="feedback" role="status" aria-live="polite"></div>
+          <div id="gameActions" class="actions"></div>
+        </div>
+      </section>
+
+      <!-- 05G. PROGRESO — Resumen, recomendaciones de Nova y avance por tema. -->
+      <section id="progressView" class="hidden compact-progress">
+        <div class="page-heading">
+          <div>
+            <h1>Mi progreso</h1>
+            <p>Pequeños pasos, grandes avances.</p>
+          </div>
+          <label
+            >Grado
+            <select id="progressGrade">
+              <option value="4">4.º</option>
+              <option value="5">5.º</option>
+              <option value="6">6.º</option>
+            </select></label
+          >
+        </div>
+        <div id="progressSummary" class="card progress-quick"></div>
+        <h2 class="compact-heading">Recomendaciones de Nova</h2>
+        <div id="recommendCards"></div>
+        <h2 class="compact-heading">Avance por tema</h2>
+        <div id="topicProgress" class="progress-topic-list"></div>
+      </section>
+
+      <!-- 05H. TEMAS — Seis temas propios de cada grado. -->
+      <section id="topics" class="hidden">
+        <div class="heading">
+          <div>
+            <span class="tag">SEIS MUNDOS, MUCHOS DESCUBRIMIENTOS</span>
+            <h1>Temas de matemáticas</h1>
+          </div>
+          <label
+            >Mi grado
+            <select id="grade">
+              <option value="4">4.º de primaria</option>
+              <option value="5">5.º de primaria</option>
+              <option value="6">6.º de primaria</option>
+            </select></label
+          >
+        </div>
+        <p class="topics-intro">
+          Cada grado tiene su propio recorrido de seis temas. Avanza en el orden sugerido o vuelve a
+          un tema para practicar con Nova.
+        </p>
+        <div class="curriculum-card">
+          <span class="tag">TU RECORRIDO DE APRENDIZAJE</span>
+          <h2 id="curriculumTitle"></h2>
+          <p id="curriculumDescription"></p>
+          <p class="small">
+            Los seis temas están disponibles. Puedes pedir ayuda y repasar sin perder estrellas.
+          </p>
+        </div>
+        <div id="worlds" class="grid"></div>
+      </section>
+    </main>
+    <!-- 06. AYUDA DE NOVA — Botón disponible en todas las pantallas. -->
+    <button id="novaHelp" class="nova-fab" aria-expanded="false" aria-controls="novaPanel">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="813 122 265 283"
+        role="img"
+        aria-label="Nova, tu compañero de matemáticas"
+        data-nova="true"
+      >
+        <use href="#nova-art-image" /></svg
+      ><span>¿Te ayudo?<small>Consulta a Nova</small></span>
+    </button>
+    <!-- 07. GUÍA DE NOVA — Consejos escritos y recorrido por la plataforma. -->
+    <aside id="novaPanel" class="nova-panel hidden" role="dialog" aria-labelledby="novaPanelTitle">
+      <div class="nova-panel-head">
+        <div class="mini-avatar">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="813 122 265 283"
+            role="img"
+            aria-label="Nova, tu compañero de matemáticas"
+            data-nova="true"
+          >
+            <use href="#nova-art-image" />
+          </svg>
+        </div>
+        <div>
+          <h2 id="novaPanelTitle">Hola, soy Nova</h2>
+          <p>Tu compañero de aventuras</p>
+        </div>
+        <button id="novaClose" class="close-guide" aria-label="Cerrar la ayuda de Nova">×</button>
+      </div>
+      <div id="novaTourDots" class="tour-dots hidden"></div>
+      <p id="novaGuideMessage" role="status" aria-live="polite"></p>
+      <div id="novaGuideActions" class="nova-guide-actions"></div>
+      <p class="nova-note">Guía de la plataforma · sin chat ni conexión a internet</p>
+    </aside>
+    <!-- 08. CRÉDITOS — Desarrolladores del proyecto y año 2026. -->
+    <footer class="developer-footer">
+      <span class="footer-brand">Edu<span>Nova</span></span>
+      <p>
+        Desarrollado por <strong>Santiago Guzman Herbas</strong> y
+        <strong>Leonel Valencia Rodas</strong>
+      </p>
+      <small>2026 · Aprendemos matemáticas, paso a paso.</small>
+    </footer>
+    <!-- 11. JAVASCRIPT EXTERNO: este enlace conecta los seis juegos, Nova y el progreso desde js/app.js. -->
+    <script src="funcion.js" defer></script>
+  </body>
+</html>
